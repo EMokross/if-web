@@ -33,8 +33,6 @@ export class AuthService {
   }
 
   init(id: string, accessToken: string): Observable<boolean> {
-    console.log('init auth')
-
     this.store.next(AuthActions.update({
       accessToken: accessToken,
       refreshToken: '',
