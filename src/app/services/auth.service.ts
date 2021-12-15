@@ -44,4 +44,9 @@ export class AuthService {
       })
     )
   }
+
+  logout(): void {
+    this.store.next(UserActions.reset());
+    this.store.next(AuthActions.reset());
+  }
 }

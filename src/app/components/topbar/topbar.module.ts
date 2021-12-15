@@ -9,6 +9,7 @@ import { LoginOutline } from '@ant-design/icons-angular/icons';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 
 const icons: IconDefinition[] = [
   LoginOutline
@@ -26,6 +27,7 @@ const icons: IconDefinition[] = [
     NzModalModule,
     NzInputModule,
     NzAlertModule,
+    NzDropDownModule,
     NzIconModule.forRoot(icons)
   ],
   exports: [
