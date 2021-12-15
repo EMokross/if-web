@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { authStateReducer } from './reducer/auth.reducer';
+import { TopbarModule } from './components/topbar/topbar.module';
 
 registerLocaleData(en);
 
@@ -25,8 +27,11 @@ registerLocaleData(en);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({}, {}),
-    NzLayoutModule
+    StoreModule.forRoot({
+      auth: authStateReducer
+    }),
+    NzLayoutModule,
+    TopbarModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

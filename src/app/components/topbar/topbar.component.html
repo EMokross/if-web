@@ -1,0 +1,40 @@
+<div class="container"> 
+    <div>
+        Heloo
+    </div>
+    <div class="controlls">
+        <button
+            nz-button
+            nzType="default"
+            (click)="showModal()">
+                <i nz-icon nzType="login" nzTheme="outline"></i> Login
+        </button>
+    </div>
+</div>
+
+
+
+<nz-modal [(nzVisible)]="isModalVisible" nzTitle="Login" [nzFooter]="modalFooter" (nzOnCancel)="handleCancel()">
+    <ng-container *nzModalContent>
+        <nz-alert
+            *ngIf="(error | async)?.length"
+            nzType="error"
+            [nzMessage]="error | async"></nz-alert>
+
+        <nz-input-group [nzPrefix]="prefixUser">
+            <input type="text" nz-input placeholder="Username" [(ngModel)]="username"/>
+        </nz-input-group>
+        <ng-template #prefixUser><i nz-icon nzType="user"></i></ng-template>
+
+        <nz-input-group [nzPrefix]="prefixPassword">
+            <input type="text" nz-input placeholder="Password" type="password" [(ngModel)]="password"/>
+        </nz-input-group>
+        <ng-template #prefixPassword><i nz-icon nzType="unlock"></i></ng-template>
+
+    </ng-container>
+
+    <ng-template #modalFooter>
+        <button nz-button nzType="default" (click)="handleCancel()">Cancel</button>
+        <button nz-button nzType="primary" (click)="login()">Login</button>
+    </ng-template>
+</nz-modal>
