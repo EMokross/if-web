@@ -1,3 +1,4 @@
+import { metaReducers } from './store/index';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -12,8 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
-import { authStateReducer } from './reducer/auth.reducer';
 import { TopbarModule } from './components/topbar/topbar.module';
+import { reducers } from './store';
 
 registerLocaleData(en);
 
@@ -27,9 +28,10 @@ registerLocaleData(en);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({
-      auth: authStateReducer
-    }),
+    StoreModule.forRoot(
+      reducers,
+      { metaReducers }
+    ),
     NzLayoutModule,
     TopbarModule
   ],

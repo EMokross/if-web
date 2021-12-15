@@ -24,18 +24,5 @@ export class AppComponent {
     private cookie: CookieService
   ) {
     this.authState = store.select('auth');
-    this.init();
   }
-
-  async init(): Promise<void> {
-    const accessToken = this.cookie.get('accessToken');
-    const userId = this.cookie.get('userId');
-
-    if (!(accessToken?.length && userId?.length)) {
-      return;
-    }
-
-    await this.auth.init(userId, accessToken).toPromise();
-  }
-
 }

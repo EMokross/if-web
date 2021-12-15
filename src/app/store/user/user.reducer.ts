@@ -1,6 +1,6 @@
-import { User } from './../entities/user';
+import { User } from '../../entities/user';
 import { createReducer, on, Action } from "@ngrx/store";
-import * as UserActions from '../actions/user.actions'
+import * as UserActions from './user.actions'
 
 const defaultState: User = {
     id: '',
@@ -8,7 +8,7 @@ const defaultState: User = {
     email: ''
 }
 
-export const authStateReducer = createReducer(
+export const userReducer = createReducer(
     defaultState,
     on(UserActions.update, (state, user) => user),
     on(UserActions.reset, (state) => defaultState)
