@@ -52,6 +52,9 @@ export class TopbarComponent implements OnInit {
     this.auth.login({username: this.username, password: this.password}).subscribe(
       (res: User) => {
         this.handleCancel();
+
+        this.username = '';
+        this.password = '';
       },
       (err: HttpErrorResponse) => {
         this.error.next(err.error)
