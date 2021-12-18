@@ -1,3 +1,5 @@
+import { DashboardModule } from './pages/dashboard/dashboard.module';
+import { HomeModule } from './pages/home/home.module';
 import { SsrService } from './service/ssr.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -33,7 +35,9 @@ registerLocaleData(en);
       reducers
     ),
     NzLayoutModule,
-    TopbarModule
+    TopbarModule,
+    HomeModule,
+    DashboardModule
   ],
   providers: [
     {

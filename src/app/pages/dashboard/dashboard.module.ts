@@ -9,7 +9,10 @@ import { DashboardComponent } from './dashboard.component';
     DashboardComponent
   ],
   imports: [
-    CommonModule
+    // CommonModule
+  ],
+  exports: [
+    DashboardComponent
   ]
 })
 export class DashboardModule { }
