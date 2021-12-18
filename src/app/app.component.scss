@@ -7,13 +7,13 @@ nz-header {
 }
 
 nz-footer {
-    background: #7dbcea;
+    background: var(--color-primary);
     color: #fff;
     line-height: 1.5;
 }
 
 nz-sider {
-    background: #3ba0e9;
+    background: var(--color-primary-tint);
     color: #fff;
     line-height: 120px;
 }
