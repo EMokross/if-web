@@ -1,13 +1,15 @@
+import { CookieService } from './cookie.service';
 import { LoginBody, LoginResponse } from './../entities/api/auth-requests';
 import { User } from './../entities/user';
 import { AuthApiService } from './../api/auth.api.service';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators'
+import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators'
 import { AuthState } from '../entities/auth-state';
 import { Store } from '@ngrx/store';
-import * as AuthActions from '../actions/auth.actions';
-import * as UserActions from '../actions/user.actions';
+import * as AuthActions from '../store/auth/auth.actions';
+import * as UserActions from '../store/user/user.actions';
+import { UserApiService } from '../api/user.api.service';
 
 interface State {
   auth: AuthState,
@@ -23,7 +25,9 @@ export class AuthService {
 
   constructor(
     private authApi: AuthApiService,
-    private store: Store<State>
+    private userApi: UserApiService,
+    private store: Store<State>,
+    private cookie: CookieService
   ) {
     this.authState = store.select('auth');
   }
@@ -43,5 +47,10 @@ export class AuthService {
         return res.user;
       })
     )
+  }
+
+  logout(): void {
+    this.store.next(UserActions.reset());
+    this.store.next(AuthActions.reset());
   }
 }

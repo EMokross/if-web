@@ -2,13 +2,31 @@
     <div>
         Heloo
     </div>
-    <div class="controlls">
+    <div class="ctrls ctrls-guest" *ngIf="!(authState | async)?.isLogged">
         <button
             nz-button
             nzType="default"
             (click)="showModal()">
                 <i nz-icon nzType="login" nzTheme="outline"></i> Login
         </button>
+    </div>
+    <div class="ctrls ctrls-guest" *ngIf="(authState | async)?.isLogged">
+        <button
+            nz-button
+            nzType="default"
+            nzShape="circle"
+            size="large"
+            nz-dropdown
+            [nzDropdownMenu]="menu">
+                <i nz-icon nzType="user" nzTheme="outline"></i>
+        </button>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu nzSelectable>
+                <span nz-menu-item nzDanger (click)="logout()">
+                  <i nz-icon nzType="logout" nzTheme="outline"></i> Logout
+                </span>
+            </ul>
+          </nz-dropdown-menu>
     </div>
 </div>
 

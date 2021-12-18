@@ -3,7 +3,7 @@
     <app-topbar></app-topbar>
   </nz-header>
   <nz-layout class="content-container">
-    <nz-sider *ngIf="(authState | async)?.isLogged">Sider</nz-sider>
+    <nz-sider #sidebar>Sider</nz-sider>
     <nz-layout>
       <nz-content><router-outlet></router-outlet></nz-content>
       <nz-footer>Footer</nz-footer>
