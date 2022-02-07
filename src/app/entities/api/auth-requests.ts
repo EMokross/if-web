@@ -1,7 +1,8 @@
+import { NzModalModule } from 'ng-zorro-antd/modal';
 import { User } from './../user';
 
 export interface LoginBody {
-    username: string,
+    name: string,
     password: string
 }
 

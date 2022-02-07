@@ -3,9 +3,8 @@ import { createReducer, on, Action } from "@ngrx/store";
 import * as UserActions from './user.actions'
 
 const defaultState: User = {
-    id: '',
-    username: '',
-    email: ''
+    _id: '',
+    name: ''
 }
 
 export const userReducer = createReducer(

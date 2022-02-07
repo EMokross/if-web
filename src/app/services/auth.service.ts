@@ -32,14 +32,14 @@ export class AuthService {
     this.authState = store.select('auth');
   }
 
-  login({username, password}: LoginBody): Observable<User> {
-    return this.authApi.login({username, password}).pipe(
+  login({name, password}: LoginBody): Observable<User> {
+    return this.authApi.login({name, password}).pipe(
       map((res: LoginResponse) => {
         this.store.next(AuthActions.update({
           accessToken: res.accessToken as string,
           refreshToken: '',
           isLogged: true,
-          userId: res.user.id as string
+          userId: res.user._id as string
         }));
 
         this.store.next(UserActions.update(res.user));

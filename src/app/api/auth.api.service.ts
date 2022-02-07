@@ -11,9 +11,7 @@ import { User } from '../entities/user';
 export class AuthApiService extends ApiService {
 
   login(body: LoginBody): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${this.baseUrl}/login`, {
-      email: body.username,
-      password: body.password
-    });
+    console.log(body)
+    return this.http.post<LoginResponse>(`${this.baseUrl}/auth/login`, body);
   }
 }

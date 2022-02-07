@@ -49,7 +49,7 @@ export class TopbarComponent implements OnInit {
   }
 
   login(): void {
-    this.auth.login({username: this.username, password: this.password}).subscribe(
+    this.auth.login({name: this.username, password: this.password}).subscribe(
       (res: User) => {
         this.handleCancel();
 
