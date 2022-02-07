@@ -4,6 +4,7 @@ import { ApiService } from './api.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,8 @@ export class UserApiService extends ApiService {
       'Authorization': `Bearer ${this.accessToken}`
     })
 
-    return this.http.get<User>(`${this.baseUrl}/users/${params.id}`, {headers: headers});
+    return this.http.get<User[]>(`${this.baseUrl}/user/${params.id}`, {headers: headers}).pipe(
+      map(res => res[0])
+    );
   }
 }

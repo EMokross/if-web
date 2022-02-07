@@ -1,6 +1,6 @@
 <div class="container"> 
     <div>
-        Heloo
+        <h1>iF City</h1>
     </div>
     <div class="ctrls ctrls-guest" *ngIf="!(authState | async)?.isLogged">
         <button
@@ -10,7 +10,8 @@
                 <i nz-icon nzType="login" nzTheme="outline"></i> Login
         </button>
     </div>
-    <div class="ctrls ctrls-guest" *ngIf="(authState | async)?.isLogged">
+    <div class="ctrls" *ngIf="(authState | async)?.isLogged">
+        <p>{{(user | async)?.playerName}}</p>
         <button
             nz-button
             nzType="default"
@@ -29,8 +30,6 @@
           </nz-dropdown-menu>
     </div>
 </div>
-
-
 
 <nz-modal [(nzVisible)]="isModalVisible" nzTitle="Login" [nzFooter]="modalFooter" (nzOnCancel)="handleCancel()">
     <ng-container *nzModalContent>

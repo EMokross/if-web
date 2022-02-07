@@ -5,4 +5,20 @@
     display: flex;
     justify-content: space-between;
     padding: 0 2em;
+
+    * {
+        color: var(--color-primary-contrast)
+    }
+}
+
+.ctrls {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    justify-content: space-evenly;
+    column-gap: 1em;
+
+    p {
+        margin: 0;
+    }
 }

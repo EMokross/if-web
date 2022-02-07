@@ -18,6 +18,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { TopbarModule } from './components/topbar/topbar.module';
 import { reducers } from './store';
 import { hydrationMetaReducerFactory } from './store/hdyration/hydration.reducer';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 registerLocaleData(en);
 
